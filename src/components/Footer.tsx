@@ -39,7 +39,7 @@ export function Footer({ setCurrentPage }: FooterProps) {
                 <Twitter size={20} className="text-slate-400 hover:text-white" />
               </a>
               <a
-                href="mailto:info@linjet.com"
+                href="mailto:info@linjet.aero"
                 className="w-10 h-10 bg-slate-800 hover:bg-sky-500 rounded-lg flex items-center justify-center transition-colors"
               >
                 <Mail size={20} className="text-slate-400 hover:text-white" />
