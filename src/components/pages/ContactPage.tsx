@@ -54,7 +54,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <div className="text-slate-400 mb-1">E-posta</div>
-                    <a href="mailto:info@linjet.com" className="text-xl text-white hover:text-sky-400 transition-colors">
+                    <a href="mailto:info@linjet.aero" className="text-xl text-white hover:text-sky-400 transition-colors">
                       info@linjet.com
                     </a>
                   </div>
