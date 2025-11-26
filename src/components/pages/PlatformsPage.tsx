@@ -33,7 +33,7 @@ const services = [
   {
     icon: Wrench,
     title: 'Teknik Yönetim',
-    description: 'Her platform için OEM standartlarında bakım ve teknik yönetim',
+    description: 'Her tip için OEM standartlarında bakım ve teknik yönetim',
   },
   {
     icon: Shield,
@@ -66,7 +66,7 @@ export function PlatformsPage() {
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-5xl sm:text-6xl text-white mb-6">Uçak Platformları</h1>
+            <h1 className="text-5xl sm:text-6xl text-white mb-6">Hava Aracı Tipi</h1>
             <p className="text-xl text-slate-400 max-w-3xl mx-auto">
               Gulfstream, Bombardier, Dassault, Embraer ve diğer iş jeti platformlarında derin teknik uzmanlık
             </p>
@@ -105,9 +105,9 @@ export function PlatformsPage() {
       <section className="py-16 bg-slate-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl text-white mb-4">Platform Hizmetlerimiz</h2>
+            <h2 className="text-4xl text-white mb-4">Hizmetlerimiz</h2>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-              Her platform için özelleştirilmiş yönetim ve destek hizmetleri
+              Her hava aracı için özelleştirilmiş yönetim ve destek hizmetleri
             </p>
           </div>
 
