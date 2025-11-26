@@ -63,7 +63,7 @@ export function Header({ currentPage, setCurrentPage }: HeaderProps) {
                 currentPage === 'platforms' ? 'text-sky-500' : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              Uçak Platformları
+              AOC Hizmetimiz
             </button>
             <button
               onClick={() => navigateTo('contact')}
@@ -108,7 +108,7 @@ export function Header({ currentPage, setCurrentPage }: HeaderProps) {
                   currentPage === 'platforms' ? 'text-sky-500' : 'text-slate-700 hover:text-slate-900'
                 }`}
               >
-                Uçak Platformları
+                AOC Hizmetimiz
               </button>
               <button
                 onClick={() => navigateTo('contact')}
