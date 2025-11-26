@@ -1,10 +1,7 @@
 import React from 'react';
 
 const stats = [
-  {
-    number: '99.8%',
-    label: 'Uçuşa Elverişlilik Oranı',
-  },
+  
   {
     number: '7/24',
     label: 'Global Operasyon Desteği',
@@ -14,8 +11,8 @@ const stats = [
     label: 'Regülasyon Uyumu',
   },
   {
-    number: '4+',
-    label: 'Uçak Platformu Uzmanlığı',
+    number: '20+',
+    label: 'Hava Aracı Tip Uzmanlığı',
   },
 ];
 
