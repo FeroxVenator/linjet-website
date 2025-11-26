@@ -91,8 +91,8 @@ export function Footer({ setCurrentPage }: FooterProps) {
             <h4 className="text-white mb-4">İletişim</h4>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <a href="mailto:info@linjet.com" className="hover:text-sky-400 transition-colors">
-                  info@linjet.com
+                <a href="mailto:info@linjet.aero" className="hover:text-sky-400 transition-colors">
+                  info@linjet.aero
                 </a>
               </li>
               <li>
