@@ -20,7 +20,7 @@ export function AboutPage() {
           <div className="text-center mb-16">
             <h1 className="text-5xl sm:text-6xl text-white mb-6">Hakkımızda</h1>
             <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-              Engineering-Driven. Owner-Focused.
+              Mühendislik Odaklı. Müşteri Odaklı.
             </p>
           </div>
         </div>

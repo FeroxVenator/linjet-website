@@ -39,7 +39,7 @@ export function Footer({ setCurrentPage }: FooterProps) {
                 <Twitter size={20} className="text-slate-400 hover:text-white" />
               </a>
               <a
-                href="mailto:info@linjet.aero"
+                href="mailto:info@linjet.com"
                 className="w-10 h-10 bg-slate-800 hover:bg-sky-500 rounded-lg flex items-center justify-center transition-colors"
               >
                 <Mail size={20} className="text-slate-400 hover:text-white" />
@@ -69,10 +69,18 @@ export function Footer({ setCurrentPage }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() => navigateTo('platforms')}
+                  onClick={() => navigateTo('services')}
                   className="text-slate-400 hover:text-sky-400 transition-colors"
                 >
-                  Uçak Platformları
+                  Hizmetlerimiz
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigateTo('booking')}
+                  className="text-slate-400 hover:text-sky-400 transition-colors"
+                >
+                  Uçuş Talep Formu
                 </button>
               </li>
               <li>
@@ -111,12 +119,12 @@ export function Footer({ setCurrentPage }: FooterProps) {
             © {new Date().getFullYear()} LinJet. Tüm hakları saklıdır.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-slate-400 hover:text-sky-400 transition-colors">
+            <button onClick={() => navigateTo('privacy')} className="text-slate-400 hover:text-sky-400 transition-colors">
               Gizlilik Politikası
-            </a>
-            <a href="#" className="text-slate-400 hover:text-sky-400 transition-colors">
+            </button>
+            <button onClick={() => navigateTo('terms')} className="text-slate-400 hover:text-sky-400 transition-colors">
               Kullanım Koşulları
-            </a>
+            </button>
           </div>
         </div>
       </div>

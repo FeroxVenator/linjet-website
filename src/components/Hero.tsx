@@ -19,10 +19,10 @@ export function Hero() {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl text-white mb-6 tracking-tight">
-            Precision in Every Flight
+            Her Uçuşta Hassasiyet
           </h1>
           <p className="text-xl sm:text-2xl text-slate-300 mb-4">
-            Your Aircraft, Perfectly Managed.
+            Uçağınız, Mükemmel Yönetiliyor.
           </p>
           <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
             Premium iş jeti yönetimi ve operasyon hizmetleri. Mühendislik odaklı, tam şeffaf, uluslararası standartlarda.

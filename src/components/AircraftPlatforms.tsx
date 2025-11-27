@@ -38,7 +38,7 @@ export function AircraftPlatforms() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl text-white mb-4">Hava Aracı Tipleri</h2>
+          <h2 className="text-4xl sm:text-5xl text-white mb-4">Uçak Platformları</h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">
             Gulfstream, Bombardier, Dassault, Embraer ve diğer iş jeti platformlarında derin teknik uzmanlık
           </p>
