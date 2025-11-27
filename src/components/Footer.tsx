@@ -80,7 +80,7 @@ export function Footer({ setCurrentPage }: FooterProps) {
                   onClick={() => navigateTo('booking')}
                   className="text-slate-400 hover:text-sky-400 transition-colors"
                 >
-                  Uçuş Talep Formu
+                  Uçuş Planlama
                 </button>
               </li>
               <li>

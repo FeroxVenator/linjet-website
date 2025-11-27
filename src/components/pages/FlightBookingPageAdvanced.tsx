@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Plane, MapPin, Users, Send, Plus, X, Search } from 'lucide-react';
+import { airportDatabase, Airport } from '../../data/airports';
 
 const aircraftTypes = [
   'Gulfstream G450',
@@ -18,74 +19,6 @@ const aircraftTypes = [
   'Embraer Praetor 600',
   'Tercih Yok',
 ];
-
-// Comprehensive airport database
-const airportDatabase = [
-  // Turkey
-  { icao: 'LTAC', iata: 'ESB', name: 'Esenboğa Havalimanı', city: 'Ankara', country: 'Türkiye', location: 'Ankara, Türkiye' },
-  { icao: 'LTFM', iata: 'IST', name: 'İstanbul Havalimanı', city: 'İstanbul', country: 'Türkiye', location: 'İstanbul, Türkiye' },
-  { icao: 'LTFJ', iata: 'SAW', name: 'Sabiha Gökçen Havalimanı', city: 'İstanbul', country: 'Türkiye', location: 'İstanbul, Türkiye' },
-  { icao: 'LTAI', iata: 'AYT', name: 'Antalya Havalimanı', city: 'Antalya', country: 'Türkiye', location: 'Antalya, Türkiye' },
-  { icao: 'LTFH', iata: 'ADB', name: 'İzmir Adnan Menderes Havalimanı', city: 'İzmir', country: 'Türkiye', location: 'İzmir, Türkiye' },
-  { icao: 'LTCG', iata: 'DLM', name: 'Dalaman Havalimanı', city: 'Dalaman', country: 'Türkiye', location: 'Muğla, Türkiye' },
-  { icao: 'LTBS', iata: 'BJV', name: 'Bodrum-Milas Havalimanı', city: 'Bodrum', country: 'Türkiye', location: 'Muğla, Türkiye' },
-  
-  // Europe - France
-  { icao: 'LFPG', iata: 'CDG', name: 'Charles de Gaulle Havalimanı', city: 'Paris', country: 'Fransa', location: 'Paris, Fransa' },
-  { icao: 'LFPO', iata: 'ORY', name: 'Orly Havalimanı', city: 'Paris', country: 'Fransa', location: 'Paris, Fransa' },
-  { icao: 'LFPB', iata: 'LBG', name: 'Le Bourget Havalimanı', city: 'Paris', country: 'Fransa', location: 'Paris, Fransa' },
-  { icao: 'LFML', iata: 'MRS', name: 'Marsilya Provence Havalimanı', city: 'Marsilya', country: 'Fransa', location: 'Marsilya, Fransa' },
-  { icao: 'LFMN', iata: 'NCE', name: 'Nice Côte d\'Azur Havalimanı', city: 'Nice', country: 'Fransa', location: 'Nice, Fransa' },
-  
-  // UK
-  { icao: 'EGLL', iata: 'LHR', name: 'Heathrow Havalimanı', city: 'Londra', country: 'İngiltere', location: 'Londra, İngiltere' },
-  { icao: 'EGKK', iata: 'LGW', name: 'Gatwick Havalimanı', city: 'Londra', country: 'İngiltere', location: 'Londra, İngiltere' },
-  { icao: 'EGLC', iata: 'LCY', name: 'London City Havalimanı', city: 'Londra', country: 'İngiltere', location: 'Londra, İngiltere' },
-  { icao: 'EGSS', iata: 'STN', name: 'Stansted Havalimanı', city: 'Londra', country: 'İngiltere', location: 'Londra, İngiltere' },
-  
-  // Germany
-  { icao: 'EDDM', iata: 'MUC', name: 'Münih Havalimanı', city: 'Münih', country: 'Almanya', location: 'Münih, Almanya' },
-  { icao: 'EDDF', iata: 'FRA', name: 'Frankfurt Havalimanı', city: 'Frankfurt', country: 'Almanya', location: 'Frankfurt, Almanya' },
-  { icao: 'EDDB', iata: 'BER', name: 'Berlin Brandenburg Havalimanı', city: 'Berlin', country: 'Almanya', location: 'Berlin, Almanya' },
-  { icao: 'EDDH', iata: 'HAM', name: 'Hamburg Havalimanı', city: 'Hamburg', country: 'Almanya', location: 'Hamburg, Almanya' },
-  { icao: 'EDDK', iata: 'CGN', name: 'Köln/Bonn Havalimanı', city: 'Köln', country: 'Almanya', location: 'Köln, Almanya' },
-  
-  // Italy
-  { icao: 'LIRF', iata: 'FCO', name: 'Fiumicino Havalimanı', city: 'Roma', country: 'İtalya', location: 'Roma, İtalya' },
-  { icao: 'LIMC', iata: 'MXP', name: 'Malpensa Havalimanı', city: 'Milano', country: 'İtalya', location: 'Milano, İtalya' },
-  { icao: 'LIPZ', iata: 'VCE', name: 'Venedik Marco Polo Havalimanı', city: 'Venedik', country: 'İtalya', location: 'Venedik, İtalya' },
-  
-  // Spain
-  { icao: 'LEMD', iata: 'MAD', name: 'Madrid-Barajas Havalimanı', city: 'Madrid', country: 'İspanya', location: 'Madrid, İspanya' },
-  { icao: 'LEBL', iata: 'BCN', name: 'Barcelona-El Prat Havalimanı', city: 'Barcelona', country: 'İspanya', location: 'Barcelona, İspanya' },
-  { icao: 'LEPA', iata: 'PMI', name: 'Palma de Mallorca Havalimanı', city: 'Palma', country: 'İspanya', location: 'Mallorca, İspanya' },
-  
-  // Poland
-  { icao: 'EPWA', iata: 'WAW', name: 'Varşova Chopin Havalimanı', city: 'Varşova', country: 'Polonya', location: 'Varşova, Polonya' },
-  { icao: 'EPKK', iata: 'KRK', name: 'Krakow John Paul II Havalimanı', city: 'Krakow', country: 'Polonya', location: 'Krakow, Polonya' },
-  { icao: 'EPGD', iata: 'GDN', name: 'Gdańsk Lech Wałęsa Havalimanı', city: 'Gdańsk', country: 'Polonya', location: 'Gdańsk, Polonya' },
-  
-  // Middle East
-  { icao: 'OMDB', iata: 'DXB', name: 'Dubai Uluslararası Havalimanı', city: 'Dubai', country: 'BAE', location: 'Dubai, BAE' },
-  { icao: 'OMDW', iata: 'DWC', name: 'Al Maktoum Havalimanı', city: 'Dubai', country: 'BAE', location: 'Dubai, BAE' },
-  { icao: 'OTHH', iata: 'DOH', name: 'Hamad Uluslararası Havalimanı', city: 'Doha', country: 'Katar', location: 'Doha, Katar' },
-  { icao: 'OMAA', iata: 'AUH', name: 'Abu Dhabi Havalimanı', city: 'Abu Dhabi', country: 'BAE', location: 'Abu Dhabi, BAE' },
-  
-  // USA
-  { icao: 'KJFK', iata: 'JFK', name: 'John F. Kennedy Havalimanı', city: 'New York', country: 'ABD', location: 'New York, ABD' },
-  { icao: 'KLAX', iata: 'LAX', name: 'Los Angeles Havalimanı', city: 'Los Angeles', country: 'ABD', location: 'Los Angeles, ABD' },
-  { icao: 'KORD', iata: 'ORD', name: 'O\'Hare Havalimanı', city: 'Chicago', country: 'ABD', location: 'Chicago, ABD' },
-  { icao: 'KMIA', iata: 'MIA', name: 'Miami Havalimanı', city: 'Miami', country: 'ABD', location: 'Miami, ABD' },
-];
-
-interface Airport {
-  icao: string;
-  iata: string;
-  name: string;
-  city: string;
-  country: string;
-  location: string;
-}
 
 interface RouteSegment {
   id: number;
@@ -122,7 +55,7 @@ export function FlightBookingPage() {
       airport.city.toUpperCase().includes(upperQuery) ||
       airport.name.toUpperCase().includes(upperQuery) ||
       airport.country.toUpperCase().includes(upperQuery)
-    ).slice(0, 8);
+    ).slice(0, 10);
   };
 
   const handleFromSearchChange = (id: number, value: string) => {

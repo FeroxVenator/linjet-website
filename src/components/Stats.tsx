@@ -11,7 +11,11 @@ const stats = [
   },
   {
     number: '20+',
-    label: 'Uçak Platformu Uzmanlığı',
+    label: 'Uçak Tipi Uzmanlığı',
+  },
+  {
+    number: '15+',
+    label: 'Yıl Tecrübesi',
   },
 ];
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import logo from 'figma:asset/754012f2dd1634659ec146627a703a7401bb4b59.png';
 
 interface SplashScreenProps {
   onLanguageSelect: (lang: string) => void;
@@ -27,54 +28,15 @@ export function SplashScreen({ onLanguageSelect }: SplashScreenProps) {
     return () => clearTimeout(welcomeTimer);
   }, []);
 
+  const handleLanguageSelect = (lang: string) => {
+    onLanguageSelect(lang);
+  };
+
   return (
-    <div className="fixed inset-0 z-[100] bg-slate-950 overflow-hidden">
-      {/* Simulated Video Background - Cabin Interior Movement */}
-      <div className="absolute inset-0">
-        {/* Dark gradient overlay to simulate video */}
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-        
-        {/* Simulated cabin lights/windows effect */}
-        <motion.div
-          className="absolute inset-0"
-          initial={{ opacity: 0.1 }}
-          animate={{ opacity: [0.1, 0.3, 0.1] }}
-          transition={{ duration: 3, repeat: Infinity }}
-        >
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-sky-600/10 rounded-full blur-3xl" />
-        </motion.div>
-
-        {/* Simulated forward movement effect */}
-        <motion.div
-          className="absolute inset-0"
-          style={{
-            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.8) 100%)',
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center px-4">
+    <div className="fixed inset-0 bg-slate-950 z-50 flex items-center justify-center overflow-y-auto">
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-950 opacity-90"></div>
+      
+      <div className="relative z-10 text-center px-4 py-8 w-full max-w-4xl mx-auto my-auto">
         <AnimatePresence mode="wait">
           {showWelcome && (
             <motion.div
@@ -86,20 +48,22 @@ export function SplashScreen({ onLanguageSelect }: SplashScreenProps) {
               className="text-center"
             >
               <motion.div
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.3 }}
+                className="mb-12"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8 }}
               >
-                <h1 className="text-6xl sm:text-7xl lg:text-8xl text-white mb-6 tracking-tight">
-                  Welcome on Board
-                </h1>
-                <motion.div
-                  className="w-32 h-1 bg-sky-500 mx-auto"
-                  initial={{ width: 0 }}
-                  animate={{ width: 128 }}
-                  transition={{ duration: 1, delay: 0.8 }}
-                />
+                <img src={logo} alt="LinJet" className="h-24 sm:h-32 md:h-40 w-auto mx-auto" />
               </motion.div>
+
+              <motion.h1
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-8 sm:mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                Welcome on Board
+              </motion.h1>
             </motion.div>
           )}
 
@@ -109,8 +73,17 @@ export function SplashScreen({ onLanguageSelect }: SplashScreenProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center w-full max-w-5xl"
+              className="text-center w-full max-w-5xl mx-auto"
             >
+              <motion.div
+                className="mb-12"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+              >
+                <img src={logo} alt="LinJet" className="h-24 sm:h-32 md:h-40 w-auto mx-auto" />
+              </motion.div>
+
               <motion.div
                 className="text-lg sm:text-xl text-slate-300 mb-8 space-y-2"
                 initial={{ opacity: 0 }}
@@ -124,33 +97,34 @@ export function SplashScreen({ onLanguageSelect }: SplashScreenProps) {
                 <p>🇫🇷 Veuillez sélectionner votre langue</p>
               </motion.div>
 
-              {/* Language Selection */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                {languages.map((language, index) => (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 max-w-3xl mx-auto"
+              >
+                {languages.map((lang, index) => (
                   <motion.button
-                    key={language.code}
-                    onClick={() => onLanguageSelect(language.code)}
-                    className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 hover:border-sky-500/50 rounded-xl p-6 transition-all group"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    whileTap={{ scale: 0.95 }}
+                    key={lang.code}
+                    onClick={() => handleLanguageSelect(lang.code)}
+                    className="group flex flex-col items-center gap-3 sm:gap-4 p-4 sm:p-6 bg-slate-800/30 hover:bg-slate-800/60 backdrop-blur-md border border-slate-700/30 hover:border-sky-500/50 rounded-2xl transition-all duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                    transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <div className="text-5xl mb-3">{language.flag}</div>
-                    <div className="text-xl text-white group-hover:text-sky-400 transition-colors">
-                      {language.name}
-                    </div>
+                    <div className="text-5xl sm:text-6xl md:text-7xl">{lang.flag}</div>
+                    <span className="text-white text-base sm:text-lg group-hover:text-sky-400 transition-colors">
+                      {lang.name}
+                    </span>
                   </motion.button>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-
-      {/* Vignette effect */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/50 via-transparent to-black/30" />
     </div>
   );
 }

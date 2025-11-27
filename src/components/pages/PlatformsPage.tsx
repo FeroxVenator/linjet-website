@@ -1,29 +1,28 @@
 import React from 'react';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
-import { Wrench, Shield, Globe, Clock } from 'lucide-react';
+import { Wrench, Shield, Globe, Clock, Settings, PlaneTakeoff } from 'lucide-react';
 
-const platforms = [
+const aircraftPlatforms = [
   {
     manufacturer: 'Gulfstream',
-    models: 'G450, G550, G650',
-    description: 'Ultra long-range işletme uzmanlığı',
-    capabilities: ['CAMO Yönetimi', 'Teknik Destek', 'Bakım Planlaması', 'AOG Müdahalesi'],
+    models: ['G450', 'G500', 'G550', 'G650', 'GIV-SP'],
+    description: 'Ultra uzun menzil ve lüks kabin konfigürasyonları',
   },
   {
     manufacturer: 'Bombardier',
-    models: 'Global, Challenger',
+    models: ['Global', 'Challenger'],
     description: 'Teknik yönetim ve CAMO desteği',
     capabilities: ['İşletme Yönetimi', 'Sertifikasyon', 'Ekip Koordinasyonu', 'Operasyon Desteği'],
   },
   {
     manufacturer: 'Dassault',
-    models: 'Falcon Series',
+    models: ['Falcon Series'],
     description: 'Avrupa operasyonları uzmanlığı',
     capabilities: ['Bakım İzleme', 'Part Support', 'Dokümantasyon', 'Compliance'],
   },
   {
     manufacturer: 'Embraer',
-    models: 'Legacy, Phenom, Praetor',
+    models: ['Legacy', 'Phenom', 'Praetor'],
     description: 'Orta segment işletme çözümleri',
     capabilities: ['Maliyet Optimizasyonu', 'Uçuş Planlama', 'Teknik Takip', 'Vendor Yönetimi'],
   },
@@ -31,24 +30,28 @@ const platforms = [
 
 const services = [
   {
+    icon: Settings,
+    title: 'Uçak Yönetimi',
+    description:
+      'Uçağınızın operasyonel mükemmelliğini sağlamak için eksiksiz yönetim. Ekibimiz, operasyon planlaması, mürettebat koordinasyonu ve günlük bakım takibinden sorumludur.',
+  },
+  {
     icon: Wrench,
-    title: 'Teknik Yönetim',
-    description: 'Her platform için OEM standartlarında bakım ve teknik yönetim',
+    title: 'CAMO Hizmetleri',
+    description:
+      'EASA Part-M standardında Sürekli Uçuşa Elverişlilik Yönetim Organizasyonu. Bakım programları, uygunluk takibi ve mühendislik desteği ile tam uyumluluk.',
   },
   {
     icon: Shield,
-    title: 'CAMO Hizmetleri',
-    description: 'Sürekli uçuşa elverişlilik yönetimi ve regülasyon uyumu',
+    title: 'Emniyet & Kalite',
+    description:
+      'Uluslararası standartlarda SMS, güvenlik denetimleri ve sürekli iyileştirme programları. Operasyonlarınızda sıfır taviz.',
   },
   {
-    icon: Globe,
-    title: 'Global Destek',
-    description: 'Dünya çapında MRO ve OEM network erişimi',
-  },
-  {
-    icon: Clock,
-    title: '7/24 Operasyon',
-    description: 'Kesintisiz teknik ve operasyonel destek',
+    icon: PlaneTakeoff,
+    title: 'AOC Hizmeti',
+    description:
+      'Hava Taşıyıcı İşletme Sertifikası başvurusu, yönetimi ve sürdürme. Tüm regülatif süreçlerde danışmanlık ve operasyonel destek.',
   },
 ];
 
@@ -78,17 +81,24 @@ export function PlatformsPage() {
       <section className="py-16 bg-slate-950">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {platforms.map((platform, index) => (
+            {aircraftPlatforms.map((platform, index) => (
               <div
                 key={index}
                 className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8 hover:border-sky-500/50 transition-all duration-300"
               >
                 <h3 className="text-3xl text-white mb-2">{platform.manufacturer}</h3>
-                <p className="text-sky-400 text-xl mb-4">{platform.models}</p>
+                <p className="text-sky-400 text-xl mb-4">
+                  {platform.models.map((model, idx) => (
+                    <span key={idx}>
+                      {model}
+                      {idx < platform.models.length - 1 ? ', ' : ''}
+                    </span>
+                  ))}
+                </p>
                 <p className="text-slate-300 mb-6">{platform.description}</p>
                 
                 <div className="grid grid-cols-2 gap-3">
-                  {platform.capabilities.map((capability, idx) => (
+                  {platform.capabilities?.map((capability, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-sky-400 rounded-full"></div>
                       <span className="text-slate-400 text-sm">{capability}</span>
