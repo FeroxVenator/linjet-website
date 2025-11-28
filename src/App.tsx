@@ -10,6 +10,7 @@ import { TermsPage } from "./components/pages/TermsPage";
 import { Footer } from "./components/Footer";
 import { SplashScreen } from "./components/SplashScreenVideo";
 import { LoadingScreen } from "./components/LoadingScreenVideo";
+import { getTranslation } from "./translations/all";
 
 export type PageType =
   | "home"
@@ -25,8 +26,10 @@ export default function App() {
   const [showLoading, setShowLoading] = useState(false);
   const [currentPage, setCurrentPage] =
     useState<PageType>("home");
+  const [selectedLanguage, setSelectedLanguage] = useState("tr");
 
   const handleLanguageSelect = (lang: string) => {
+    setSelectedLanguage(lang);
     setShowSplash(false);
     setShowLoading(true);
   };
@@ -40,24 +43,26 @@ export default function App() {
     setCurrentPage('home');
   };
 
+  const t = getTranslation(selectedLanguage);
+
   const renderPage = () => {
     switch (currentPage) {
       case "home":
-        return <HomePage />;
+        return <HomePage t={t} />;
       case "about":
-        return <AboutPage />;
+        return <AboutPage t={t} />;
       case "services":
-        return <PlatformsPage />;
+        return <PlatformsPage t={t} />;
       case "contact":
-        return <ContactPage />;
+        return <ContactPage t={t} />;
       case "booking":
-        return <FlightBookingPage />;
+        return <FlightBookingPage t={t} />;
       case "privacy":
-        return <PrivacyPage />;
+        return <PrivacyPage t={t} />;
       case "terms":
-        return <TermsPage />;
+        return <TermsPage t={t} />;
       default:
-        return <HomePage />;
+        return <HomePage t={t} />;
     }
   };
 
@@ -66,7 +71,7 @@ export default function App() {
   }
 
   if (showLoading) {
-    return <LoadingScreen onComplete={handleLoadingComplete} />;
+    return <LoadingScreen onComplete={handleLoadingComplete} message={t.loading.message} />;
   }
 
   return (
@@ -75,9 +80,10 @@ export default function App() {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         onLanguageChange={handleLanguageChange}
+        t={t}
       />
       <main className="pt-20">{renderPage()}</main>
-      <Footer setCurrentPage={setCurrentPage} />
+      <Footer setCurrentPage={setCurrentPage} t={t} />
     </div>
   );
 }
