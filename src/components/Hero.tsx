@@ -1,14 +1,8 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
-import { Translations } from '../translations';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ArrowRight } from 'lucide-react';
 
-interface HeroProps {
-  t: Translations;
-}
-
-export function Hero({ t }: HeroProps) {
+export function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -23,38 +17,16 @@ export function Hero({ t }: HeroProps) {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto">
-          <motion.h1
-            className="text-5xl sm:text-6xl lg:text-7xl text-white mb-6 tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {t.hero.title}
-          </motion.h1>
-          <motion.p
-            className="text-xl sm:text-2xl text-slate-300 mb-12 leading-relaxed max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {t.hero.subtitle}
-          </motion.p>
-          <motion.a
-            href="#services"
-            className="group px-8 py-4 bg-sky-500 hover:bg-sky-600 text-white rounded-lg text-lg transition-all flex items-center gap-3 mx-auto"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {t.hero.cta}
-            <ArrowRight
-              size={20}
-              className="group-hover:translate-x-1 transition-transform"
-            />
-          </motion.a>
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl text-white mb-6 tracking-tight">
+            Her Uçuşta Hassasiyet
+          </h1>
+          <p className="text-xl sm:text-2xl text-slate-300 mb-4">
+            Uçağınız, Mükemmel Yönetiliyor.
+          </p>
+          <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+            Premium iş jeti yönetimi ve operasyon hizmetleri. Mühendislik odaklı, tam şeffaf, uluslararası standartlarda.
+          </p>
         </div>
       </div>
 

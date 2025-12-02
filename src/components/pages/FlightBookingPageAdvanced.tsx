@@ -1,13 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { Plane, MapPin, Users, Send, Plus, X, Search } from 'lucide-react';
 import { airportDatabase, Airport } from '../../data/airports';
-import { Translations } from '../../translations';
 
-interface FlightBookingPageProps {
-  t: Translations;
-}
-
-const getAircraftTypes = (t: Translations) => [
+const aircraftTypes = [
   'Gulfstream G450',
   'Gulfstream G550',
   'Gulfstream G650',
@@ -22,7 +17,7 @@ const getAircraftTypes = (t: Translations) => [
   'Embraer Legacy 500',
   'Embraer Phenom 300',
   'Embraer Praetor 600',
-  t.booking.noPreference,
+  'Tercih Yok',
 ];
 
 interface RouteSegment {
@@ -35,8 +30,7 @@ interface RouteSegment {
   showToResults: boolean;
 }
 
-export function FlightBookingPage({ t }: FlightBookingPageProps) {
-  const aircraftTypes = getAircraftTypes(t);
+export function FlightBookingPage() {
   const [routes, setRoutes] = useState<RouteSegment[]>([
     { id: 1, from: null, to: null, fromSearch: '', toSearch: '', showFromResults: false, showToResults: false }
   ]);
@@ -168,9 +162,9 @@ ${formData.extraRequests || 'Yok'}
                 <Plane className="text-sky-400" size={40} />
               </div>
             </div>
-            <h1 className="text-5xl sm:text-6xl text-white mb-6">{t.booking.title}</h1>
+            <h1 className="text-5xl sm:text-6xl text-white mb-6">Uçuşunuzu Planlayalım</h1>
             <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-              {t.booking.subtitle}
+              İhtiyacınıza özel uçuş planlaması için detayları paylaşın. Ekibimiz en kısa sürede size dönüş yapacaktır.
             </p>
           </div>
         </div>
@@ -185,7 +179,7 @@ ${formData.extraRequests || 'Yok'}
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl text-white flex items-center gap-3">
                   <MapPin className="text-sky-400" size={28} />
-                  {t.booking.routeTitle}
+                  Uçuş Rotası
                 </h2>
                 <button
                   type="button"
@@ -193,7 +187,7 @@ ${formData.extraRequests || 'Yok'}
                   className="px-4 py-2 bg-sky-500/20 hover:bg-sky-500/30 text-sky-400 rounded-lg transition-colors flex items-center gap-2"
                 >
                   <Plus size={20} />
-                  {t.booking.addRoute}
+                  Rota Ekle
                 </button>
               </div>
 
@@ -201,7 +195,7 @@ ${formData.extraRequests || 'Yok'}
                 {routes.map((route, index) => (
                   <div key={route.id} className="relative">
                     <div className="flex items-center gap-2 mb-4">
-                      <span className="text-slate-400">{t.booking.segment} {index + 1}</span>
+                      <span className="text-slate-400">Segment {index + 1}</span>
                       {routes.length > 1 && (
                         <button
                           type="button"
@@ -217,7 +211,7 @@ ${formData.extraRequests || 'Yok'}
                       {/* From Airport */}
                       <div className="relative">
                         <label className="block text-slate-300 mb-2">
-                          {t.booking.departureLabel} *
+                          Kalkış Noktası *
                         </label>
                         <div className="relative">
                           <input
@@ -261,7 +255,7 @@ ${formData.extraRequests || 'Yok'}
                       {/* To Airport */}
                       <div className="relative">
                         <label className="block text-slate-300 mb-2">
-                          {t.booking.arrivalLabel} *
+                          Varış Noktası *
                         </label>
                         <div className="relative">
                           <input
@@ -309,7 +303,7 @@ ${formData.extraRequests || 'Yok'}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                 <div>
                   <label htmlFor="date" className="block text-slate-300 mb-2">
-                    {t.booking.dateLabel} *
+                    Tarih *
                   </label>
                   <input
                     type="date"
@@ -325,7 +319,7 @@ ${formData.extraRequests || 'Yok'}
 
                 <div>
                   <label htmlFor="time" className="block text-slate-300 mb-2">
-                    {t.booking.timeLabel} *
+                    Saat *
                   </label>
                   <input
                     type="time"
@@ -340,7 +334,7 @@ ${formData.extraRequests || 'Yok'}
 
                 <div>
                   <label htmlFor="passengers" className="block text-slate-300 mb-2">
-                    {t.booking.passengersLabel} *
+                    Yolcu Sayısı *
                   </label>
                   <input
                     type="number"
@@ -357,7 +351,7 @@ ${formData.extraRequests || 'Yok'}
 
                 <div>
                   <label htmlFor="aircraftType" className="block text-slate-300 mb-2">
-                    {t.booking.aircraftLabel} *
+                    Tercih Edilen Uçak Tipi *
                   </label>
                   <select
                     id="aircraftType"
@@ -367,7 +361,7 @@ ${formData.extraRequests || 'Yok'}
                     required
                     className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 transition-colors"
                   >
-                    <option value="">{t.booking.selectAircraft}</option>
+                    <option value="">Seçiniz</option>
                     {aircraftTypes.map((type) => (
                       <option key={type} value={type}>
                         {type}
@@ -379,7 +373,7 @@ ${formData.extraRequests || 'Yok'}
 
               <div className="mt-6">
                 <label htmlFor="extraRequests" className="block text-slate-300 mb-2">
-                  {t.booking.extraRequestsLabel}
+                  Ekstra Talepler
                 </label>
                 <textarea
                   id="extraRequests"
@@ -388,7 +382,7 @@ ${formData.extraRequests || 'Yok'}
                   onChange={handleChange}
                   rows={4}
                   className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 transition-colors resize-none"
-                  placeholder={t.booking.extraRequestsPlaceholder}
+                  placeholder="Özel yemek tercihleri, kabin düzeni, transfer hizmeti vb..."
                 ></textarea>
               </div>
             </div>
@@ -397,13 +391,13 @@ ${formData.extraRequests || 'Yok'}
             <div className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8 mb-8">
               <h2 className="text-2xl text-white mb-6 flex items-center gap-3">
                 <Users className="text-sky-400" size={28} />
-                {t.booking.contactTitle}
+                İletişim Bilgileriniz
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-slate-300 mb-2">
-                    {t.booking.nameLabel} *
+                    Ad Soyad *
                   </label>
                   <input
                     type="text"
@@ -419,7 +413,7 @@ ${formData.extraRequests || 'Yok'}
 
                 <div>
                   <label htmlFor="email" className="block text-slate-300 mb-2">
-                    {t.booking.emailLabel} *
+                    E-posta *
                   </label>
                   <input
                     type="email"
@@ -435,7 +429,7 @@ ${formData.extraRequests || 'Yok'}
 
                 <div>
                   <label htmlFor="phone" className="block text-slate-300 mb-2">
-                    {t.booking.phoneLabel} *
+                    Telefon *
                   </label>
                   <input
                     type="tel"
@@ -457,11 +451,11 @@ ${formData.extraRequests || 'Yok'}
                 type="submit"
                 className="px-12 py-4 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-all flex items-center justify-center gap-3 group mx-auto text-lg"
               >
-                {t.booking.submitButton}
+                Talep Gönder
                 <Send size={24} className="group-hover:translate-x-1 transition-transform" />
               </button>
               <p className="text-slate-400 mt-4">
-                {t.booking.submitNote}
+                Talebiniz sales@linjet.aero adresine iletilecektir.
               </p>
             </div>
           </form>

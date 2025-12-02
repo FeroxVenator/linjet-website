@@ -4,10 +4,9 @@ import { Plane } from 'lucide-react';
 
 interface LoadingScreenProps {
   onComplete: () => void;
-  message?: string;
 }
 
-export function LoadingScreen({ onComplete, message = 'Please Fasten Your Seatbelts' }: LoadingScreenProps) {
+export function LoadingScreen({ onComplete }: LoadingScreenProps) {
   useEffect(() => {
     // Play seatbelt sound
     const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBgoODg4SEhYWFhoeHh4eIiImJiYqKiouLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGRkpKSk5OTlJSUlZWVlpaWl5eXmJiYmZmZmpqam5ubnJycnZ2dnp6en5+foKCgoaGhoqKio6OjpKSkpaWlpqamp6enqKioqampqqqqq6urrKysra2trq6ur6+vsLCwsbGxsrKys7OztLS0tbW1tra2t7e3uLi4ubm5urq6u7u7vLy8vb29vr6+v7+/wMDAwcHBwsLCw8PDxMTExcXFxsbGx8fHyMjIycnJysrKy8vLzMzMzc3Nzs7Oz8/P0NDQ0dHR0tLS09PT1NTU1dXV1tbW19fX2NjY2dnZ2tra29vb3Nzc3d3d3t7e39/f4ODg4eHh4uLi4+Pj5OTk5eXl5ubm5+fn6Ojo6enp6urq6+vr7Ozs7e3t7u7u7+/v8PDw8fHx8vLy8/Pz9PT09fX19vb29/f3+Pj4+fn5+vr6+/v7/Pz8/f39/v7+////');
@@ -116,7 +115,7 @@ export function LoadingScreen({ onComplete, message = 'Please Fasten Your Seatbe
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1 }}
             >
-              {message}
+              Lütfen Kemerlerinizi Takınız
             </motion.h1>
 
             {/* Loading dots */}

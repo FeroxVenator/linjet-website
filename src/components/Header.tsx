@@ -2,16 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe, Phone } from 'lucide-react';
 import logo from 'figma:asset/754012f2dd1634659ec146627a703a7401bb4b59.png';
 import { PageType } from '../App';
-import { Translations } from '../translations';
 
 interface HeaderProps {
   currentPage: PageType;
   setCurrentPage: (page: PageType) => void;
   onLanguageChange?: () => void;
-  t: Translations;
 }
 
-export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: HeaderProps) {
+export function Header({ currentPage, setCurrentPage, onLanguageChange }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -45,7 +43,7 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
                 currentPage === 'home' ? 'text-sky-500' : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              {t.nav.home}
+              Ana Sayfa
             </button>
             <button
               onClick={() => navigateTo('about')}
@@ -53,7 +51,7 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
                 currentPage === 'about' ? 'text-sky-500' : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              {t.nav.about}
+              Hakkımızda
             </button>
             <button
               onClick={() => navigateTo('services')}
@@ -61,7 +59,7 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
                 currentPage === 'services' ? 'text-sky-500' : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              {t.nav.services}
+              Hizmetlerimiz
             </button>
             <button
               onClick={() => navigateTo('booking')}
@@ -69,7 +67,7 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
                 currentPage === 'booking' ? 'text-sky-500' : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              {t.nav.booking}
+              Uçuşunuzu Planlayalım
             </button>
           </nav>
 
@@ -88,15 +86,16 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
               onClick={() => navigateTo('contact')}
               className="px-6 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-md transition-colors"
             >
-              {t.nav.contact}
+              İletişim
             </button>
             {onLanguageChange && (
               <button
                 onClick={onLanguageChange}
                 className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md transition-colors flex items-center gap-2"
-                title="Change Language"
+                title="Dil Değiştir"
               >
                 <Globe size={20} />
+                <span>TR</span>
               </button>
             )}
           </nav>
@@ -120,7 +119,7 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
                   currentPage === 'home' ? 'text-sky-500' : 'text-slate-700 hover:text-slate-900'
                 }`}
               >
-                {t.nav.home}
+                Ana Sayfa
               </button>
               <button
                 onClick={() => navigateTo('about')}
@@ -128,7 +127,7 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
                   currentPage === 'about' ? 'text-sky-500' : 'text-slate-700 hover:text-slate-900'
                 }`}
               >
-                {t.nav.about}
+                Hakkımızda
               </button>
               <button
                 onClick={() => navigateTo('services')}
@@ -136,7 +135,7 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
                   currentPage === 'services' ? 'text-sky-500' : 'text-slate-700 hover:text-slate-900'
                 }`}
               >
-                {t.nav.services}
+                Hizmetlerimiz
               </button>
               <button
                 onClick={() => navigateTo('booking')}
@@ -144,7 +143,7 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
                   currentPage === 'booking' ? 'text-sky-500' : 'text-slate-700 hover:text-slate-900'
                 }`}
               >
-                {t.nav.booking}
+                Uçuşunuzu Planlayalım
               </button>
               <a href="tel:+903121234567" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center gap-2">
                 <Phone size={18} />
@@ -154,7 +153,7 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
                 onClick={() => navigateTo('contact')}
                 className="px-6 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-md transition-colors text-left"
               >
-                {t.nav.contact}
+                İletişim
               </button>
               {onLanguageChange && (
                 <button
@@ -162,7 +161,7 @@ export function Header({ currentPage, setCurrentPage, onLanguageChange, t }: Hea
                   className="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-md transition-colors text-left flex items-center gap-2"
                 >
                   <Globe size={20} />
-                  Change Language
+                  Dil Değiştir (TR)
                 </button>
               )}
             </nav>

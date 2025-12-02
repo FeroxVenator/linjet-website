@@ -1,51 +1,47 @@
 import React from 'react';
 import { Clock, Shield, Sparkles, Globe2, Users, Plane } from 'lucide-react';
-import { Translations } from '../translations';
 
-interface WhyPrivateJetProps {
-  t: Translations;
-}
+const benefits = [
+  {
+    icon: Clock,
+    title: 'Zaman Tasarrufu',
+    description: 'Ticari havayollarının sınırlamalarından bağımsız, kendi programınıza göre uçun. Aktarmasız direkt uçuşlar ve hızlı check-in süreçleri.',
+  },
+  {
+    icon: Shield,
+    title: 'Gizlilik ve Güvenlik',
+    description: 'Tam gizlilik içinde iş görüşmeleri yapın. Kişisel eşyalarınızın ve yolcu listenizin tam kontrolü sizde.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Konfor ve Lüks',
+    description: 'Premium kabin düzeni, özel yemek servisi, özelleştirilebilir iç mekan. Uçuş deneyiminizi tamamen kontrol edin.',
+  },
+  {
+    icon: Globe2,
+    title: 'Esnek Rota Seçimi',
+    description: 'İstediğiniz havalimanına uçun. Ticari havayollarının uçmadığı 5000\'den fazla havalimanına erişim imkanı.',
+  },
+  {
+    icon: Users,
+    title: 'Üretkenlik',
+    description: 'Uçuş sırasında toplantılar yapın, önemli anlaşmaları imzalayın. Havada geçen her dakikayı verimli kullanın.',
+  },
+  {
+    icon: Plane,
+    title: 'Premium Deneyim',
+    description: 'FBO terminalleri ile kalabalıktan uzak, VIP transfer hizmetleri ve 7/24 özel destek ekibi.',
+  },
+];
 
-export function WhyPrivateJet({ t }: WhyPrivateJetProps) {
-    const benefits = [
-    {
-      icon: Clock,
-      title: t.whyPrivateJet.benefit1Title,
-      description: t.whyPrivateJet.benefit1Desc,
-    },
-    {
-      icon: Shield,
-      title: t.whyPrivateJet.benefit2Title,
-      description: t.whyPrivateJet.benefit2Desc,
-    },
-    {
-      icon: Sparkles,
-      title: t.whyPrivateJet.benefit3Title,
-      description: t.whyPrivateJet.benefit3Desc,
-    },
-    {
-      icon: Globe2,
-      title: t.whyPrivateJet.benefit4Title,
-      description: t.whyPrivateJet.benefit4Desc,
-    },
-    {
-      icon: Users,
-      title: t.whyPrivateJet.benefit5Title,
-      description: t.whyPrivateJet.benefit5Desc,
-    },
-    {
-      icon: Plane,
-      title: t.whyPrivateJet.benefit6Title,
-      description: t.whyPrivateJet.benefit6Desc,
-    },
-  ];
+export function WhyPrivateJet() {
   return (
     <section className="py-24 bg-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl text-white mb-4">{t.whyPrivateJet.title}</h2>
+          <h2 className="text-4xl sm:text-5xl text-white mb-4">Neden Özel Uçak?</h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-            {t.whyPrivateJet.subtitle}
+            İş dünyasının liderlerinin ve değer odaklı yolcuların tercih ettiği seyahat çözümü
           </p>
         </div>
 
@@ -70,7 +66,9 @@ export function WhyPrivateJet({ t }: WhyPrivateJetProps) {
         <div className="mt-16 text-center">
           <div className="inline-block bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-8 max-w-4xl">
             <p className="text-lg text-slate-300 leading-relaxed">
-              {t.whyPrivateJet.closing}
+              Özel uçak seyahati, sadece bir lüks değil, aynı zamanda stratejik bir iş aracıdır. 
+              Zamanınızın değerini bilen, güvenlik ve gizliliğe önem veren, üretkenliği maksimize 
+              etmek isteyen profesyoneller için ideal çözüm.
             </p>
           </div>
         </div>
