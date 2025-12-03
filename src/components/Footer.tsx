@@ -1,17 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Linkedin, Twitter, Instagram } from 'lucide-react';
-import { PageType } from '../App';
 import { Translations } from '../translations';
+import { getPath, type SupportedLanguage } from '../routes';
 import logo from 'figma:asset/754012f2dd1634659ec146627a703a7401bb4b59.png';
 
 interface FooterProps {
-  setCurrentPage: (page: PageType) => void;
+  currentLang: SupportedLanguage;
   t: Translations;
 }
 
-export function Footer({ setCurrentPage, t }: FooterProps) {
-  const navigateTo = (page: PageType) => {
-    setCurrentPage(page);
+export function Footer({ currentLang, t }: FooterProps) {
+  const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -21,9 +21,9 @@ export function Footer({ setCurrentPage, t }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <button onClick={() => navigateTo('home')} className="mb-6">
+            <Link to={getPath(currentLang, 'home')} onClick={scrollToTop} className="mb-6 inline-block">
               <img src={logo} alt="LinJet" className="h-12 w-auto" />
-            </button>
+            </Link>
             <p className="text-slate-400 mb-6 leading-relaxed">
               {t.footer.tagline || 'Premium iş jeti yönetimi ve operasyon hizmetleri.'}
             </p>
@@ -54,36 +54,40 @@ export function Footer({ setCurrentPage, t }: FooterProps) {
             <h3 className="text-xl mb-6 text-white">{t.footer.quickLinks}</h3>
             <ul className="space-y-3">
               <li>
-                <button
-                  onClick={() => navigateTo('home')}
+                <Link
+                  to={getPath(currentLang, 'home')}
+                  onClick={scrollToTop}
                   className="text-slate-400 hover:text-sky-400 transition-colors"
                 >
                   {t.nav.home}
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => navigateTo('about')}
+                <Link
+                  to={getPath(currentLang, 'about')}
+                  onClick={scrollToTop}
                   className="text-slate-400 hover:text-sky-400 transition-colors"
                 >
                   {t.nav.about}
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => navigateTo('services')}
+                <Link
+                  to={getPath(currentLang, 'services')}
+                  onClick={scrollToTop}
                   className="text-slate-400 hover:text-sky-400 transition-colors"
                 >
                   {t.nav.services}
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => navigateTo('booking')}
+                <Link
+                  to={getPath(currentLang, 'booking')}
+                  onClick={scrollToTop}
                   className="text-slate-400 hover:text-sky-400 transition-colors"
                 >
                   {t.nav.booking}
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -155,12 +159,20 @@ export function Footer({ setCurrentPage, t }: FooterProps) {
             © {new Date().getFullYear()} LinJet. {t.footer.copyright}
           </p>
           <div className="flex gap-6 text-sm">
-            <button onClick={() => navigateTo('privacy')} className="text-slate-400 hover:text-sky-400 transition-colors">
+            <Link 
+              to={getPath(currentLang, 'privacy')} 
+              onClick={scrollToTop}
+              className="text-slate-400 hover:text-sky-400 transition-colors"
+            >
               {t.footer.privacyPolicy}
-            </button>
-            <button onClick={() => navigateTo('terms')} className="text-slate-400 hover:text-sky-400 transition-colors">
+            </Link>
+            <Link 
+              to={getPath(currentLang, 'terms')} 
+              onClick={scrollToTop}
+              className="text-slate-400 hover:text-sky-400 transition-colors"
+            >
               {t.footer.termsOfService}
-            </button>
+            </Link>
           </div>
         </div>
       </div>
