@@ -26,14 +26,6 @@ export function Hero({ t, currentLang = 'tr' }: HeroProps) {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-4xl">
-          {/* Premium Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
-            <div className="w-2 h-2 bg-sky-400 rounded-full animate-pulse" />
-            <span className="text-white text-sm tracking-wide">
-              {t.hero.badge || 'AOC Certified Business Aviation'}
-            </span>
-          </div>
-
           {/* Main Heading */}
           <h1 className="text-white mb-6 leading-tight">
             <span className="block text-5xl sm:text-6xl lg:text-7xl mb-2">
