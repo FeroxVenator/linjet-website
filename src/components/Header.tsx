@@ -4,6 +4,7 @@ import { Menu, X, Globe, Phone, ChevronDown } from 'lucide-react';
 import logo from 'figma:asset/754012f2dd1634659ec146627a703a7401bb4b59.png';
 import { Translations } from '../translations';
 import { getPath, supportedLanguages, type SupportedLanguage, type PageSlug } from '../routes';
+import { FlagIcon } from './FlagIcon';
 
 interface HeaderProps {
   currentLang: SupportedLanguage;
@@ -124,7 +125,7 @@ export function Header({ currentLang, t }: HeaderProps) {
                           currentLang === lang ? 'bg-sky-50 text-sky-600' : 'text-slate-700'
                         }`}
                       >
-                        <span className="uppercase font-medium">{lang}</span>
+                        <FlagIcon lang={lang} />
                         <span className="text-sm">{languageNames[lang]}</span>
                       </button>
                     ))}
@@ -201,7 +202,7 @@ export function Header({ currentLang, t }: HeaderProps) {
                           : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                       }`}
                     >
-                      <span className="uppercase font-medium">{lang}</span>
+                      <FlagIcon lang={lang} />
                       <span className="text-sm">{languageNames[lang]}</span>
                     </button>
                   ))}

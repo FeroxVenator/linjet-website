@@ -27,14 +27,31 @@ export interface Translations {
   // Hero Section
   hero: {
     title: string;
+    title1?: string;
+    title2?: string;
     subtitle: string;
     cta: string;
+    cta1?: string;
+    cta2?: string;
+    badge?: string;
+    statLabel1?: string;
+    stat1?: string;
+    statLabel2?: string;
+    stat2?: string;
+    statLabel3?: string;
+    stat3?: string;
+    statLabel4?: string;
+    stat4?: string;
+    scrollText?: string;
   };
 
   // Services
   services: {
     title: string;
     subtitle: string;
+    sectionBadge?: string;
+    sectionTitle?: string;
+    sectionSubtitle?: string;
     service1Title: string;
     service1Desc: string;
     service2Title: string;
@@ -43,6 +60,16 @@ export interface Translations {
     service3Desc: string;
     service4Title: string;
     service4Desc: string;
+    service5Title?: string;
+    service5Desc?: string;
+    service6Title?: string;
+    service6Desc?: string;
+    service7Title?: string;
+    service7Desc?: string;
+    service8Title?: string;
+    service8Desc?: string;
+    service9Title?: string;
+    service9Desc?: string;
   };
 
   // Why Private Jet
@@ -62,6 +89,23 @@ export interface Translations {
     benefit6Title: string;
     benefit6Desc: string;
     closing: string;
+  };
+
+  // Why LinJet
+  whyLinJet: {
+    sectionBadge?: string;
+    sectionTitle?: string;
+    sectionSubtitle?: string;
+    feature1Title: string;
+    feature1Desc: string;
+    feature2Title: string;
+    feature2Desc: string;
+    feature3Title: string;
+    feature3Desc: string;
+    feature4Title: string;
+    feature4Desc: string;
+    ctaText?: string;
+    ctaButton?: string;
   };
 
   // Stats
