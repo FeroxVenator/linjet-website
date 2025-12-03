@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import { motion } from 'motion/react';
 import { Translations } from '../translations';
 import { getPath, type SupportedLanguage } from '../routes';
 import heroImage from 'figma:asset/bb4913123b13f115cb6219a10e92b94bd42484b3.png';
@@ -18,48 +17,33 @@ export function Hero({ t, currentLang = 'tr' }: HeroProps) {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Airplane flying through clouds"
-          className="w-full h-full object-cover object-center"
+          alt="Business Jet"
+          className="w-full h-full object-cover"
         />
         {/* Gradient Overlay - Dark blue to transparent */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001B33]/95 via-[#001B33]/75 to-[#001B33]/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001B33]/95 via-[#001B33]/70 to-[#001B33]/50" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="max-w-4xl">
-          {/* Main Heading - Fade In + Slide */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-white mb-4 sm:mb-6 leading-tight"
-          >
+          {/* Main Heading */}
+          <h1 className="text-white mb-4 sm:mb-6 leading-tight">
             <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-2">
               {t.hero.title1 || 'Her Uçuşta Hassasiyet'}
             </span>
             <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-sky-300">
               {t.hero.title2 || 'Uçağınız, Mükemmel Yönetiliyor'}
             </span>
-          </motion.h1>
+          </h1>
 
-          {/* Subheading - Fade In + Slide (delayed) */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-base sm:text-xl md:text-2xl text-slate-200 mb-6 sm:mb-10 max-w-3xl leading-relaxed"
-          >
+          {/* Subheading */}
+          <p className="text-base sm:text-xl md:text-2xl text-slate-200 mb-6 sm:mb-10 max-w-3xl leading-relaxed">
             {t.hero.subtitle || 'AOC yetkisi ile iş jetleri için uçuş operasyonu ve uçak sahiplerine özel yönetim çözümleri sunuyoruz.'}
-          </motion.p>
+          </p>
 
-          {/* CTA Buttons - Fade In + Slide (delayed) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
-          >
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link
               to={getPath(currentLang, 'services')}
               className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl active:shadow-2xl hover:scale-105 active:scale-100 touch-manipulation"
@@ -75,41 +59,29 @@ export function Hero({ t, currentLang = 'tr' }: HeroProps) {
               <span className="text-base sm:text-lg">{t.hero.cta2 || 'Uçak Sahipleri İçin'}</span>
               <ChevronRight className="group-hover:translate-x-1 group-active:translate-x-2 transition-transform" size={18} />
             </Link>
-          </motion.div>
+          </div>
 
-          {/* Trust Indicators - Fade In + Floating Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="mt-8 sm:mt-16 pt-6 sm:pt-8 border-t border-white/20"
-          >
+          {/* Trust Indicators */}
+          <div className="mt-8 sm:mt-16 pt-6 sm:pt-8 border-t border-white/20">
             <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
-              {/* Stat 1 */}
               <div>
                 <div className="text-xl sm:text-2xl md:text-3xl text-white mb-1">{t.hero.statLabel1 || '24/7'}</div>
                 <div className="text-xs sm:text-sm text-slate-300">{t.hero.stat1 || 'Dispatch Support'}</div>
               </div>
-              
-              {/* Stat 2 */}
               <div>
                 <div className="text-xl sm:text-2xl md:text-3xl text-white mb-1">{t.hero.statLabel2 || 'Uluslararası'}</div>
                 <div className="text-xs sm:text-sm text-slate-300">{t.hero.stat2 || 'Aviation Standards'}</div>
               </div>
-              
-              {/* Stat 3 */}
               <div>
                 <div className="text-xl sm:text-2xl md:text-3xl text-white mb-1">{t.hero.statLabel3 || 'Part-M'}</div>
                 <div className="text-xs sm:text-sm text-slate-300">{t.hero.stat3 || 'CAMO Approved'}</div>
               </div>
-              
-              {/* Stat 4 */}
               <div>
                 <div className="text-xl sm:text-2xl md:text-3xl text-white mb-1">{t.hero.statLabel4 || 'Global'}</div>
                 <div className="text-xs sm:text-sm text-slate-300">{t.hero.stat4 || 'Operations'}</div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 

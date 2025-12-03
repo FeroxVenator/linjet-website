@@ -1429,8 +1429,8 @@
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
 
-  .via-\[\#001B33\]\/75 {
-    --tw-gradient-via: oklab(21.6754% -.021928 -.0538181 / .75);
+  .via-\[\#001B33\]\/70 {
+    --tw-gradient-via: oklab(21.6754% -.021928 -.0538181 / .7);
     --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
     --tw-gradient-stops: var(--tw-gradient-via-stops);
   }
@@ -1447,8 +1447,8 @@
     --tw-gradient-stops: var(--tw-gradient-via-stops);
   }
 
-  .to-\[\#001B33\]\/60 {
-    --tw-gradient-to: oklab(21.6754% -.021928 -.0538181 / .6);
+  .to-\[\#001B33\]\/50 {
+    --tw-gradient-to: oklab(21.6754% -.021928 -.0538181 / .5);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
 
@@ -1509,10 +1509,6 @@
 
   .object-cover {
     object-fit: cover;
-  }
-
-  .object-center {
-    object-position: center;
   }
 
   .p-2 {
