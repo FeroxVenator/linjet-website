@@ -1,15 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>LinJet Website Design</title>
-    </head>
+    <!-- PRIMARY TITLE (varsayılan TR) -->
+    <title>LinJet Havacılık | Business Jet Operasyonu ve Uçak Yönetimi</title>
 
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+    <!-- PRIMARY DESCRIPTION (varsayılan TR) -->
+    <meta
+      name="description"
+      content="LinJet Havacılık, business jet operasyonları ve uçak yönetimi hizmetleri sunar. AOC altında uçuş desteği ve uçak sahipleri için şeffaf işletme çözümleri."
+    />
+
+    <!-- KEYWORDS (niş havacılık için hâlâ işe yarayan sinyal) -->
+    <meta
+      name="keywords"
+      content="LinJet, LinJet Havacılık, LinJet Aviation, business jet, jet kiralama, hava taksi, private jet, jet charter, AOC, uçak yönetimi, aircraft management, flight operations, flight support, CAMO, airworthiness, uçak sahibi, uçak finansal raporlama, Türkiye jet operatörü, Ankara jet, Istanbul jet, air taxi, jet operator, aircraft operator"
+    />
+
+    <!-- INDEXING / CRAWLING -->
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- LANGUAGE & GEO -->
+    <meta http-equiv="Content-Language" content="tr" />
+    <meta name="geo.region" content="TR" />
+    <meta name="geo.placename" content="Ankara" />
+    <meta name="geo.position" content="39.9334;32.8597" />
+    <meta name="ICBM" content="39.9334,32.8597" />
+
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://linjet.aero/" />
+
+    <!-- MULTI-LANGUAGE HREFLANG (routing: /tr /en /de /pl /fr) -->
+    <link rel="alternate" href="https://linjet.aero/tr" hreflang="tr" />
+    <link rel="alternate" href="https://linjet.aero/en" hreflang="en" />
+    <link rel="alternate" href="https://linjet.aero/de" hreflang="de" />
+    <link rel="alternate" href="https://linjet.aero/pl" hreflang="pl" />
+    <link rel="alternate" href="https://linjet.aero/fr" hreflang="fr" />
+    <link rel="alternate" href="https://linjet.aero/tr" hreflang="x-default" />
+
+    <!-- SITE NAME HER DİLDE (sinyal) -->
+    <meta name="application-name" content="LinJet Havacılık" lang="tr" />
+    <meta name="application-name" content="LinJet Aviation" lang="en" />
+    <meta name="application-name" content="LinJet Luftfahrt" lang="de" />
+    <meta name="application-name" content="LinJet Lotnictwo" lang="pl" />
+    <meta name="application-name" content="LinJet Aviation" lang="fr" />
+
+    <!-- OPEN GRAPH -->
+    <meta
+      property="og:title"
+      content="LinJet Havacılık | Business Jet Operasyonu ve Uçak Yönetimi"
+    />
+    <meta
+      property="og:description"
+      content="Business jet uçuş operasyonu ve uçak yönetimi. LinJet Havacılık, AOC yetkisi ile iş jetleri için premium uçuş yönetimi ve uçak sahiplerine özel çözümler sunar."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://linjet.aero/" />
+    <!-- Buraya gerçekten var olan bir görsel koy: 1200x630px -->
+    <meta
+      property="og:image"
+      content="https://linjet.aero/images/linjet-og-image.jpg"
+    />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="pl_PL" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:site_name" content="LinJet Havacılık | LinJet Aviation" />
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="LinJet Havacılık | Business Jet Operasyonu ve Uçak Yönetimi"
+    />
+    <meta
+      name="twitter:description"
+      content="Business jet operasyonu ve uçak yönetimi hizmetleri. AOC altında iş jetleriniz için profesyonel uçuş desteği ve şeffaf işletme çözümleri."
+    />
+    <meta
+      name="twitter:image"
+      content="https://linjet.aero/images/linjet-og-image.jpg"
+    />
+
+    <!-- THEME COLOR -->
+    <meta name="theme-color" content="#001B33" />
+
+    <!-- FAVICONLAR (dosyalarına göre değiştir) -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- STRUCTURED DATA: ORGANIZATION -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "LinJet Havacılık",
+        "alternateName": [
+          "LinJet Aviation",
+          "LinJet Luftfahrt",
+          "LinJet Lotnictwo",
+          "LinJet Aviation (FR)"
+        ],
+        "url": "https://linjet.aero/",
+        "description": "LinJet Havacılık, AOC yetkisi ile business jet uçuş operasyonu ve uçak yönetimi hizmetleri sunan bir iş jeti operatörüdür.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "TR",
+          "addressLocality": "Ankara",
+          "addressRegion": "Ankara"
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Türkiye" },
+          { "@type": "Country", "name": "Europe" },
+          { "@type": "Country", "name": "Middle East" }
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "availableLanguage": ["tr", "en", "de", "pl", "fr"],
+            "email": "info@linjet.aero"
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
