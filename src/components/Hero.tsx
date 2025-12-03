@@ -40,24 +40,13 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
 export function Hero({ t, currentLang = 'tr' }: HeroProps) {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-white">
-      {/* Background Video with Overlay */}
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster={heroImage}
+        <img
+          src={heroImage}
+          alt="Airplane flying through clouds"
           className="w-full h-full object-cover object-center"
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-view-from-the-plane-window-flying-over-the-clouds-4075-large.mp4" type="video/mp4" />
-          {/* Fallback image if video doesn't load */}
-          <img
-            src={heroImage}
-            alt="Business Jet"
-            className="w-full h-full object-cover object-center"
-          />
-        </video>
+        />
         {/* Gradient Overlay - Dark blue to transparent */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#001B33]/95 via-[#001B33]/75 to-[#001B33]/60" />
       </div>
