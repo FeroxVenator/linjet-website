@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plane, Settings, Wrench, Award } from 'lucide-react';
+import { Plane, Settings, Wrench, Award, Shield, ShoppingCart, Radio } from 'lucide-react';
 import { Translations } from '../../translations';
 
 interface PlatformsPageProps {
@@ -10,7 +10,7 @@ export function PlatformsPage({ t }: PlatformsPageProps) {
   const aircraftPlatforms = [
     {
       manufacturer: 'Gulfstream',
-      models: ['G450', 'G500', 'G550', 'G650', 'GIV-SP'],
+      models: ['GIV-SP', 'G450', 'G500', 'G550', 'G650'],
       description: t.platforms.gulfstreamDesc,
     },
     {
@@ -46,6 +46,21 @@ export function PlatformsPage({ t }: PlatformsPageProps) {
       title: t.platforms.expertise3Title,
       description: t.platforms.expertise3Desc,
     },
+    {
+      icon: Shield,
+      title: t.platforms.expertise4Title,
+      description: t.platforms.expertise4Desc,
+    },
+    {
+      icon: ShoppingCart,
+      title: t.platforms.expertise5Title,
+      description: t.platforms.expertise5Desc,
+    },
+    {
+      icon: Radio,
+      title: t.platforms.expertise6Title,
+      description: t.platforms.expertise6Desc,
+    },
   ];
 
   return (
@@ -70,12 +85,11 @@ export function PlatformsPage({ t }: PlatformsPageProps) {
       {/* Aircraft Platforms */}
       <section className="py-16 bg-slate-950">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl text-white mb-12 text-center">{t.platforms.platformsTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {aircraftPlatforms.map((platform, index) => (
               <div
                 key={index}
-                className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8"
+                className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8 hover:border-sky-500/50 transition-all"
               >
                 <h3 className="text-2xl text-white mb-4">{platform.manufacturer}</h3>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -98,13 +112,13 @@ export function PlatformsPage({ t }: PlatformsPageProps) {
       {/* Expertise */}
       <section className="py-16 bg-slate-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {expertise.map((item, index) => {
               const Icon = item.icon;
               return (
                 <div
                   key={index}
-                  className="bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-xl p-8 text-center"
+                  className="bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-xl p-8 text-center hover:border-sky-500/50 transition-all"
                 >
                   <div className="w-14 h-14 bg-sky-500/10 rounded-lg flex items-center justify-center mx-auto mb-6">
                     <Icon className="text-sky-400" size={28} />

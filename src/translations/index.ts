@@ -97,16 +97,18 @@ export interface Translations {
     bombardierDesc: string;
     dassaultDesc: string;
     embraerDesc: string;
-    capability1: string;
-    capability2: string;
-    capability3: string;
-    capability4: string;
     expertise1Title: string;
     expertise1Desc: string;
     expertise2Title: string;
     expertise2Desc: string;
     expertise3Title: string;
     expertise3Desc: string;
+    expertise4Title: string;
+    expertise4Desc: string;
+    expertise5Title: string;
+    expertise5Desc: string;
+    expertise6Title: string;
+    expertise6Desc: string;
   };
 
   // Contact Page

@@ -120,23 +120,25 @@ export const fr: Translations = {
   },
 
   platforms: {
-    title: 'Plateformes d\'avions',
-    subtitle: 'Solutions sur mesure pour votre avion grâce à notre vaste expérience en matière de plateformes',
-    platformsTitle: 'Plateformes prises en charge',
-    gulfstreamDesc: 'Portée ultra-longue et configurations de cabine luxueuses',
+    title: 'Personnalisé pour vous',
+    subtitle: 'Expertise technique approfondie sur les plateformes Gulfstream, Bombardier, Dassault, Embraer et autres jets d\'affaires',
+    platformsTitle: '',
+    gulfstreamDesc: 'Très longue portée et configurations de cabine luxueuses',
     bombardierDesc: 'Plateformes haute performance et axées sur le confort',
     dassaultDesc: 'Ingénierie française et efficacité opérationnelle',
     embraerDesc: 'Excellence dans la catégorie légère et moyenne',
-    capability1: 'Gestion des op��rations',
-    capability2: 'Certification',
-    capability3: 'Coordination d\'équipage',
-    capability4: 'Support opérationnel',
     expertise1Title: 'Gestion de la maintenance',
     expertise1Desc: 'Maintenance programmée, suivi des dossiers techniques et gestion de la navigabilité',
     expertise2Title: 'Services CAMO',
     expertise2Desc: 'Gestion continue de la navigabilité selon les normes Part-M',
     expertise3Title: 'Services AOC',
     expertise3Desc: 'Certificat de transporteur aérien et support opérationnel',
+    expertise4Title: 'Sécurité et qualité',
+    expertise4Desc: 'Gestion SMS, audits de sécurité et programmes d\'amélioration continue',
+    expertise5Title: 'Achat/Vente d\'avions et affrètement',
+    expertise5Desc: 'Conseil en achat et vente d\'avions et gestion des opérations d\'affrètement',
+    expertise6Title: 'Dispatch et support de vol',
+    expertise6Desc: 'Planification de vol 24/7, support opérationnel et coordination en temps réel',
   },
 
   contact: {
@@ -282,10 +284,10 @@ export const fr: Translations = {
 
   footer: {
     quickLinks: 'Liens rapides',
-    contactInfo: 'Coordonnées',
-    followUs: 'Suivez-nous',
+    contactInfo: 'Informations de contact',
     copyright: 'Tous droits réservés.',
     privacyPolicy: 'Politique de confidentialité',
     termsOfService: 'Conditions d\'utilisation',
+    tagline: 'Services de gestion et d\'exploitation de jets d\'affaires premium.',
   },
 };

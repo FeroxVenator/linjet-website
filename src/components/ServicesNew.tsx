@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings, Wrench, Shield, PlaneTakeoff, Plane, DollarSign, Users, Globe } from 'lucide-react';
+import { Plane, Settings, Shield, DollarSign, Users, Globe } from 'lucide-react';
 import { Translations } from '../translations';
 
 interface ServicesProps {
@@ -14,7 +14,7 @@ export function Services({ t }: ServicesProps) {
       description: t.services.service1Desc,
     },
     {
-      icon: Wrench,
+      icon: Settings,
       title: t.services.service2Title,
       description: t.services.service2Desc,
     },
@@ -65,8 +65,7 @@ export function Services({ t }: ServicesProps) {
                 <p className="text-slate-400 text-sm leading-relaxed">{service.description}</p>
               </div>
             );
-          })}
-        </div>
+          })}\n        </div>
       </div>
     </section>
   );

@@ -7,11 +7,11 @@ interface SplashScreenProps {
 }
 
 const languages = [
-  { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'pl', name: 'Polski', flag: '🇵🇱' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'tr', name: 'Türkçe', flag: '🇹🇷', flagSvg: 'https://flagcdn.com/tr.svg' },
+  { code: 'en', name: 'English', flag: '🇬🇧', flagSvg: 'https://flagcdn.com/gb.svg' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪', flagSvg: 'https://flagcdn.com/de.svg' },
+  { code: 'pl', name: 'Polski', flag: '🇵🇱', flagSvg: 'https://flagcdn.com/pl.svg' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷', flagSvg: 'https://flagcdn.com/fr.svg' },
 ];
 
 export function SplashScreen({ onLanguageSelect }: SplashScreenProps) {
@@ -114,7 +114,13 @@ export function SplashScreen({ onLanguageSelect }: SplashScreenProps) {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <div className="text-5xl sm:text-6xl md:text-7xl">{lang.flag}</div>
+                    {/* Mobile: Emoji, Desktop: SVG Image */}
+                    <div className="text-5xl sm:text-6xl md:text-7xl md:hidden">{lang.flag}</div>
+                    <img 
+                      src={lang.flagSvg} 
+                      alt={lang.name}
+                      className="hidden md:block w-16 h-16 rounded-lg object-cover shadow-lg"
+                    />
                     <span className="text-white text-base sm:text-lg group-hover:text-sky-400 transition-colors">
                       {lang.name}
                     </span>

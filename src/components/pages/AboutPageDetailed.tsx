@@ -38,8 +38,18 @@ export function AboutPage({ t }: AboutPageProps) {
 
   return (
     <div className="min-h-screen bg-slate-950">
-      {/* LinJet Kimdir Section with Image */}
-      <section className="py-24 bg-slate-950">
+      {/* Hero Section with Header */}
+      <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-950">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl sm:text-6xl text-white mb-4 tracking-tight">{t.about.title}</h1>
+            <p className="text-2xl text-sky-400">{t.about.subtitle}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content Section */}
+      <section className="py-16 bg-slate-950">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left - Image */}
@@ -81,7 +91,7 @@ export function AboutPage({ t }: AboutPageProps) {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Mission Card */}
-            <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8">
+            <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8 hover:border-sky-500/50 transition-all">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-14 h-14 bg-sky-500/10 rounded-full flex items-center justify-center">
                   <Target className="text-sky-400" size={28} />
@@ -94,7 +104,7 @@ export function AboutPage({ t }: AboutPageProps) {
             </div>
 
             {/* Vision Card */}
-            <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8">
+            <div className="bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-2xl p-8 hover:border-sky-500/50 transition-all">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-14 h-14 bg-sky-500/10 rounded-full flex items-center justify-center">
                   <Eye className="text-sky-400" size={28} />
