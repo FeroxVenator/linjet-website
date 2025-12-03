@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://linjet.tr/sitemap.xml
+Sitemap: https://linjet.aero/sitemap.xml
