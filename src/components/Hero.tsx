@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Translations } from '../translations';
 import { getPath, type SupportedLanguage } from '../routes';
 import heroImage from 'figma:asset/bb4913123b13f115cb6219a10e92b94bd42484b3.png';
@@ -9,32 +9,6 @@ import heroImage from 'figma:asset/bb4913123b13f115cb6219a10e92b94bd42484b3.png'
 interface HeroProps {
   t: Translations;
   currentLang?: SupportedLanguage;
-}
-
-// Counter component for animated numbers
-function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
-  const [count, setCount] = React.useState(0);
-
-  React.useEffect(() => {
-    const duration = 2000; // 2 seconds
-    const steps = 60;
-    const increment = target / steps;
-    let current = 0;
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-
-    return () => clearInterval(timer);
-  }, [target]);
-
-  return <>{count}{suffix}</>;
 }
 
 export function Hero({ t, currentLang = 'tr' }: HeroProps) {
