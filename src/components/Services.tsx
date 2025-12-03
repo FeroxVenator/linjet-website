@@ -41,45 +41,48 @@ export function Services({ t }: ServicesProps) {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-slate-50">
+    <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-100 text-sky-700 text-sm mb-4">
             {t.services.sectionBadge || 'Hizmetlerimiz'}
           </div>
-          <h2 className="text-4xl sm:text-5xl text-[#001B33] mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#001B33] mb-3 sm:mb-4 px-4">
             {t.services.sectionTitle || 'Uçtan Uca Business Jet Yönetimi'}
           </h2>
-          <p className="text-xl text-slate-600">
-            {t.services.sectionSubtitle || 'AOC operasyonundan CAMO hizmetlerine kadar tüm ihtiyaçlarınız için tek çözüm ortağınız'}
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 px-4">
+            {t.services.sectionSubtitle || 'AOC operasyonundan CAMO hizmetlerine kadar tm ihtiyaçlarınız için tek çözüm ortağınız'}
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <div
                 key={index}
-                className="group relative bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 hover:border-sky-300"
+                className="group relative bg-white rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-xl active:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-sky-300 active:border-sky-400 cursor-pointer touch-manipulation"
               >
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="text-white" size={28} />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-active:scale-105 transition-transform duration-300 shadow-md group-hover:shadow-sky-300/50 group-active:shadow-sky-400/50">
+                  <Icon className="text-white" size={24} />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl text-[#001B33] mb-3">
+                <h3 className="text-lg sm:text-xl text-[#001B33] mb-2 sm:mb-3 group-hover:text-sky-600 group-active:text-sky-700 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                   {service.description}
                 </p>
 
                 {/* Hover Effect Line */}
-                <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-sky-400 to-sky-600 group-hover:w-full transition-all duration-300 rounded-b-xl" />
+                <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-sky-400 to-sky-600 group-hover:w-full group-active:w-full transition-all duration-300 rounded-b-xl" />
+                
+                {/* Background Glow on Hover/Active */}
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-sky-50 to-blue-50 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 -z-10" />
               </div>
             );
           })}

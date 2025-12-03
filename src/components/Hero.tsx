@@ -1,86 +1,152 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Translations } from '../translations';
 import { getPath, type SupportedLanguage } from '../routes';
+import heroImage from 'figma:asset/bb4913123b13f115cb6219a10e92b94bd42484b3.png';
 
 interface HeroProps {
   t: Translations;
   currentLang?: SupportedLanguage;
 }
 
+// Counter component for animated numbers
+function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, [target]);
+
+  return <>{count}{suffix}</>;
+}
+
 export function Hero({ t, currentLang = 'tr' }: HeroProps) {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-white">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1760183957226-8ad1e94c863f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGpldCUyMGFpcmNyYWZ0JTIwbHV4dXJ5fGVufDF8fHx8MTc2NDcyOTc5N3ww&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Business Jet"
-          className="w-full h-full object-cover"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={heroImage}
+          className="w-full h-full object-cover object-center"
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-view-from-the-plane-window-flying-over-the-clouds-4075-large.mp4" type="video/mp4" />
+          {/* Fallback image if video doesn't load */}
+          <img
+            src={heroImage}
+            alt="Business Jet"
+            className="w-full h-full object-cover object-center"
+          />
+        </video>
         {/* Gradient Overlay - Dark blue to transparent */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001B33]/95 via-[#001B33]/70 to-[#001B33]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001B33]/95 via-[#001B33]/75 to-[#001B33]/60" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="max-w-4xl">
-          {/* Main Heading */}
-          <h1 className="text-white mb-6 leading-tight">
-            <span className="block text-5xl sm:text-6xl lg:text-7xl mb-2">
+          {/* Main Heading - Fade In + Slide */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-white mb-4 sm:mb-6 leading-tight"
+          >
+            <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-2">
               {t.hero.title1 || 'Her Uçuşta Hassasiyet'}
             </span>
-            <span className="block text-3xl sm:text-4xl lg:text-5xl text-sky-300">
+            <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-sky-300">
               {t.hero.title2 || 'Uçağınız, Mükemmel Yönetiliyor'}
             </span>
-          </h1>
+          </motion.h1>
 
-          {/* Subheading */}
-          <p className="text-xl sm:text-2xl text-slate-200 mb-10 max-w-3xl leading-relaxed">
+          {/* Subheading - Fade In + Slide (delayed) */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-base sm:text-xl md:text-2xl text-slate-200 mb-6 sm:mb-10 max-w-3xl leading-relaxed"
+          >
             {t.hero.subtitle || 'AOC yetkisi ile iş jetleri için uçuş operasyonu ve uçak sahiplerine özel yönetim çözümleri sunuyoruz.'}
-          </p>
+          </motion.p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          {/* CTA Buttons - Fade In + Slide (delayed) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+          >
             <Link
               to={getPath(currentLang, 'services')}
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl active:shadow-2xl hover:scale-105 active:scale-100 touch-manipulation"
             >
-              <span className="text-lg">{t.hero.cta1 || 'Hizmetlerimizi İnceleyin'}</span>
-              <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+              <span className="text-base sm:text-lg">{t.hero.cta1 || 'Hizmetlerimizi İnceleyin'}</span>
+              <ArrowRight className="group-hover:translate-x-1 group-active:translate-x-2 transition-transform" size={18} />
             </Link>
             
             <Link
               to={getPath(currentLang, 'contact')}
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-lg transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white/10 hover:bg-white/20 active:bg-white/30 backdrop-blur-sm border border-white/30 hover:border-white/50 active:border-white/70 text-white rounded-lg transition-all duration-300 touch-manipulation"
             >
-              <span className="text-lg">{t.hero.cta2 || 'Uçak Sahipleri İçin'}</span>
-              <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
+              <span className="text-base sm:text-lg">{t.hero.cta2 || 'Uçak Sahipleri İçin'}</span>
+              <ChevronRight className="group-hover:translate-x-1 group-active:translate-x-2 transition-transform" size={18} />
             </Link>
-          </div>
+          </motion.div>
 
-          {/* Trust Indicators */}
-          <div className="mt-16 pt-8 border-t border-white/20">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {/* Trust Indicators - Fade In + Floating Animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            className="mt-8 sm:mt-16 pt-6 sm:pt-8 border-t border-white/20"
+          >
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+              {/* Stat 1 */}
               <div>
-                <div className="text-3xl text-white mb-1">{t.hero.statLabel1 || '24/7'}</div>
-                <div className="text-sm text-slate-300">{t.hero.stat1 || 'Dispatch Support'}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl text-white mb-1">{t.hero.statLabel1 || '24/7'}</div>
+                <div className="text-xs sm:text-sm text-slate-300">{t.hero.stat1 || 'Dispatch Support'}</div>
               </div>
+              
+              {/* Stat 2 */}
               <div>
-                <div className="text-3xl text-white mb-1">{t.hero.statLabel2 || 'Uluslararası'}</div>
-                <div className="text-sm text-slate-300">{t.hero.stat2 || 'Aviation Standards'}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl text-white mb-1">{t.hero.statLabel2 || 'Uluslararası'}</div>
+                <div className="text-xs sm:text-sm text-slate-300">{t.hero.stat2 || 'Aviation Standards'}</div>
               </div>
+              
+              {/* Stat 3 */}
               <div>
-                <div className="text-3xl text-white mb-1">{t.hero.statLabel3 || 'Part-M'}</div>
-                <div className="text-sm text-slate-300">{t.hero.stat3 || 'CAMO Approved'}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl text-white mb-1">{t.hero.statLabel3 || 'Part-M'}</div>
+                <div className="text-xs sm:text-sm text-slate-300">{t.hero.stat3 || 'CAMO Approved'}</div>
               </div>
+              
+              {/* Stat 4 */}
               <div>
-                <div className="text-3xl text-white mb-1">{t.hero.statLabel4 || 'Global'}</div>
-                <div className="text-sm text-slate-300">{t.hero.stat4 || 'Operations'}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl text-white mb-1">{t.hero.statLabel4 || 'Global'}</div>
+                <div className="text-xs sm:text-sm text-slate-300">{t.hero.stat4 || 'Operations'}</div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
