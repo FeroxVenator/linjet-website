@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/(tr|en|de|fr|pl)/(.*)", "destination": "/" }
+  ]
+}
