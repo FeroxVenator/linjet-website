@@ -1,12 +1,13 @@
 {
-  "rewrites": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "routes": [
     {
-      "source": "/:lang(tr|en|de|fr|pl)",
-      "destination": "/"
+      "src": "/:lang(tr|en|de|fr|pl)",
+      "dest": "/"
     },
     {
-      "source": "/:lang(tr|en|de|fr|pl)/**",
-      "destination": "/"
+      "src": "/:lang(tr|en|de|fr|pl)/(.*)",
+      "dest": "/"
     }
   ]
 }
