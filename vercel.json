@@ -1,5 +1,6 @@
 {
-  "rewrites": [
-    { "source": "/(tr|en|de|fr|pl)/(.*)", "destination": "/" }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(tr|en|de|fr|pl)/.*", "dest": "/" }
   ]
 }
