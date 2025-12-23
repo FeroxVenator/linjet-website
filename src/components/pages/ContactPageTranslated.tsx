@@ -135,8 +135,8 @@ export function ContactPage({ t }: ContactPageProps) {
 
                   <div className="flex items-center gap-4">
                     <Phone className="text-sky-400 flex-shrink-0" size={24} />
-                    <a href="tel:+903121234567" className="hover:text-sky-400 transition-colors">
-                      +90 (312) 123 45 67
+                    <a href="tel:+905448690097" className="hover:text-sky-400 transition-colors">
+                      +90 (544) 869 00 97
                     </a>
                   </div>
 
