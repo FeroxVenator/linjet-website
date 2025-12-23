@@ -98,8 +98,8 @@ export function Footer({ currentLang, t }: FooterProps) {
             <ul className="space-y-3 sm:space-y-4 text-slate-400">
               <li className="flex items-center gap-3">
                 <Phone className="text-sky-400 flex-shrink-0" size={18} />
-                <a href="tel:+903121234567" className="text-sm sm:text-base hover:text-sky-400 transition-colors">
-                  +90 (312) 123 45 67
+                <a href="tel:+905448690097" className="text-sm sm:text-base hover:text-sky-400 transition-colors">
+                  +90 (544) 869 00 97
                 </a>
               </li>
               <li className="flex items-center gap-3">
