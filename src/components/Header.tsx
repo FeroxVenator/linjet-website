@@ -87,9 +87,9 @@ export function Header({ currentLang, t }: HeaderProps) {
 
           {/* Right Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
-            <a href="tel:+903121234567" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center gap-2">
+            <a href="tel:++905448690097" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center gap-2">
               <Phone size={18} />
-              +90 (312) 123 45 67
+              +90 (544) 869 00 97
             </a>
             <Link
               to={getPath(currentLang, 'contact')}
@@ -176,9 +176,9 @@ export function Header({ currentLang, t }: HeaderProps) {
               >
                 {t.nav.booking}
               </Link>
-              <a href="tel:+903121234567" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center gap-2">
+              <a href="tel:+905448690097" className="text-slate-700 hover:text-slate-900 transition-colors flex items-center gap-2">
                 <Phone size={18} />
-                +90 (312) 123 45 67
+                +90 (544) 869 00 97
               </a>
               <Link
                 to={getPath(currentLang, 'contact')}
