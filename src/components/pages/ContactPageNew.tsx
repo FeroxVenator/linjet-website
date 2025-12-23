@@ -99,8 +99,8 @@ export function ContactPage() {
                   </div>
                   <div>
                     <div className="text-slate-400 mb-1">Telefon</div>
-                    <a href="tel:+903121234567" className="text-xl text-white hover:text-sky-400 transition-colors">
-                      +90 (312) 123 45 67
+                    <a href="tel:++905448690097" className="text-xl text-white hover:text-sky-400 transition-colors">
+                      +90 (544) 846 00 97
                     </a>
                   </div>
                 </div>
